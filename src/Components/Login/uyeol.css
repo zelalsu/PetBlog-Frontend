@@ -1,0 +1,13 @@
+.div
+{
+  align-items: center;
+  margin-bottom: 4px;
+  display: flex ;
+  flex-direction: row;
+  
+  
+}
+.icon
+{
+    margin-inline-end: 3;
+}

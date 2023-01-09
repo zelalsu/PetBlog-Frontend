@@ -1,0 +1,12 @@
+.container-fluid{
+    margin-top: 65px;
+    min-width:60px ;
+    background-color: rgb(152, 158, 96);
+ 
+}
+h3{
+    color: aliceblue;
+    min-height: auto;
+    max-width:fit-content;
+}
+
