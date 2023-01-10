@@ -116,21 +116,8 @@ const EditProduct = (props) => {
                                     style={{ height: "100px" }}
                                 />
                             </FormGroup>
-
-                            {/* <Form.Group className="mb-3">
-                            <input type="file" name="file" id="file"/>
-                            <FormControl as="textarea" aria-label="With textarea"
-                                    type="file"
-                                    name="image"
-                                    required//boş geçilemez 
-                                    defaultValue={this.props.image}
-                                    placeholder='Ürün Özelliği '
-                                    style={{ height: "100px" }}
-                                />                                       
-                            </Form.Group> */}
-
                             <FormGroup>
-                                <Button variant="primary" type="submit">Ürünü Güncelle</Button>
+                            <Button style={{marginTop:"10px"}} variant="primary" type="submit">Ürünü Güncelle</Button>
                             </FormGroup>
                         </Form>
                     </Col>

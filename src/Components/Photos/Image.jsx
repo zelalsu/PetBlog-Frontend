@@ -1,24 +1,34 @@
 import React, { Component } from 'react'
-import { Card } from 'react-bootstrap';
 
-class Image extends Component {//ref oluşturma kısmı
+ class Image extends Component {
+	constructor(props) {
+		super(props);
+		this.state=
+		{
+			spanCount:1
+		}
+		this.myRef = React.createRef();
+		
+	  }
+	  componentDidMount() {
+		// 
+		this.myRef.current.addEventListener('load',() =>{
+			console.log(this.myRef.current.clientHeight);
+			const spanim=Math.round(this.myRef.current.clientHeight/5)+1;
 
-  constructor(props) {
-    super(props);
-    this.myRef = React.createRef();
-  }
-  componentDidMount() {
-    console.log(this.myRef);
-  }
-  render() {
-    const { image } = this.props;//gelen propsu image i aldık
-    return (
-    
-        <Card style={{  backgroundColor: "#e6f2ff", width: '35em', height: "550px", display: "flex",
-         justifyContent: "flex-end", margin: "30px 30px 30px 30px" }}  >
-          <img height={"550"} width={"auto"} ref={this.myRef} key={image.id} src={image.urls.small} alt="" />
-        </Card>
-    )
-  }
+		this.setState({
+			spanCount:spanim
+		});
+			
+		});
+	
+	  }
+	render() {
+		const{image}=this.props;
+		return (
+			<img style={{gridRowEnd:`span ${this.state.spanCount}`}} ref={this.myRef} key={image.id} src={image.urls.small} alt=""/>
+		)
+	}
 }
-export default Image
+
+export default Image;

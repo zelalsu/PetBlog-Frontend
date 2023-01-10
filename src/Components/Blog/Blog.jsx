@@ -5,7 +5,7 @@ import {
 } from 'mdb-react-ui-kit';
 import { Button, ButtonToolbar, Col, Row } from 'react-bootstrap';
 import { Footer } from '../Footer/Footer';
-
+import pati from './images/14710.jpg'
 const Blog = (props) => {
 
   const [blogs, setBlogs] = useState([]);
@@ -22,16 +22,20 @@ const Blog = (props) => {
       .then(data => setBlogs(data));
   });
   return (
-    <div >
+    <div  style={{ backgroundImage: `url(${pati})` }}>
       <Col>
         <Row >
-
+          <Row>
+          <Col>
           {isAdmin === 'false' ? (
             <>
-              <Button onClick={() => props.history.push('/blog-ekle')} >Yeni Blog Ekle</Button>
+              <Button   style={{ backgroundColor:"#F08080", marginTop: "3em", marginLeft: "50em",height:"50px",width:"50em" }}  onClick={() => props.history.push('/blog-ekle')} > BLOG YAZISI EKLEMEK İÇİN TIKLA...</Button>
             </>
           ) : null
           }
+          </Col>
+          </Row>
+         
           {blogs.map(blog => (
             <MDBCard key={blog.BlogId} style={{ maxWidth: '400px', display: "flex", justifyContent: "flex-end", margin: "40px 40px 40px 40px",  }}>
               <MDBRow className='g-0'>
@@ -46,7 +50,7 @@ const Blog = (props) => {
                     </small>
                   </MDBCardText>
                   <ButtonToolbar>
-                    <Button onClick={() => {
+                    <Button  style={{backgroundColor:"#20B2AA"}} onClick={() => {
                       props.history.push("/blog-page", { blog: blog })
                     }}>
                       Devamı..

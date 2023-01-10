@@ -38,7 +38,7 @@ const GetProduct = (props) => {
     debugger
     setCart(newCart);
 
-    alertifyjs.success(product.ProductName + "added to favorites", 2);
+    alertifyjs.success(product.ProductName + "Favorilerim sayfasına eklendi", 2);
 
   };
 
@@ -62,25 +62,24 @@ const GetProduct = (props) => {
     <div>
       <Row>
         <Row>
-          <Col>
+          <Row>
             {isAdmin === 'false' ? (
               <>
-                <Button style={{ marginTop: "3em", marginLeft: "70em" }} onClick={() => { props.history.push("/favorites", { cart: cart }) }}  >Favorilerim</Button>
+                <Button style={{ backgroundColor:"#EE82EE", marginTop: "3em",height:"50px",width:"50em",marginLeft:"55em"  }} onClick={() => { props.history.push("/favorites", { cart: cart }) }}  >Favorilerim</Button>
 
               </>) : null}
 
-          </Col>
-          <Col>
+          </Row>
+          <Row>
             {isAdmin === 'true' ? (
               <>
-                <Button style={{ marginTop: "3em" }} onClick={() => {
+                <Button style={{ backgroundColor:"#F08080", marginTop: "3em",height:"50px",width:"50em",marginLeft:"55em" }} onClick={() => {
                   setAddModalShow(true);
                 }} >Ürün Ekle</Button>
               </>
             ) : null
-            }</Col>
+            }</Row>
         </Row>
-
 
 
         {props.product.map(product => (
@@ -94,7 +93,7 @@ const GetProduct = (props) => {
 
             {isAdmin === 'false' ? (
               <>
-                <Button onClick={() => { addToFavorites(product) }}>Favorilere ekle</Button>
+                <Button style={{backgroundColor:"#008080"}} onClick={() => { addToFavorites(product) }}>Favorilere ekle</Button>
               </>) : null}
             <CardBody>
               <CardTitle tag="h5">

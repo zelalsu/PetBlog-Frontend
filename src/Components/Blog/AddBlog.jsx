@@ -5,11 +5,9 @@ import {
     MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardImage, MDBTextArea, MDBCardText,
 }
     from 'mdb-react-ui-kit';
+import { Footer } from '../Footer/Footer';
 
 const AddBlog = () => {
-
-
-
     const handleSubmit = (e) => {
         debugger
         const request = JSON.stringify({
@@ -24,7 +22,6 @@ const AddBlog = () => {
             BlogImageThree: e.target.blogImageThree.value,
 
         });
-
         e.preventDefault();
         fetch(`${process.env.REACT_APP_BASE_ENDPOINT}/api/Blog/`, {//fetch ile istek attık buraya
 
@@ -43,13 +40,10 @@ const AddBlog = () => {
                     alertify.success("Fail")
                 }
             )
-
     }
     return (
         <div style={{ marginTop: "30px" }}>
-
             <Row>
-
                 <MDBContainer >
                     <MDBCard className='text-black m-5' style={{ borderRadius: '50px', borderStyle: "solid" }}>
                         <MDBCardBody   >
@@ -163,11 +157,8 @@ const AddBlog = () => {
                                                 required//boş geçilemez 
                                                 placeholder='Lütfen eklemek istediğiniz 1. fotoğrafı link şeklinde giriniz...'
                                             />
-
                                         </div>
-
                                         <div className="d-flex flex-row align-items-center mb-4 ">
-
                                             <MDBCardText style={{ marginRight: "10px" }}>
                                                 3. Fotoğraf
                                             </MDBCardText>
@@ -179,10 +170,7 @@ const AddBlog = () => {
                                                 required//boş geçilemez 
                                                 placeholder='Lütfen eklemek istediğiniz 1. fotoğrafı link şeklinde giriniz...'
                                             />
-
                                         </div>
-
-
                                         <MDBBtn type="submit" className='mb-4' size='lg'>GÖNDER</MDBBtn>
                                     </Form>
                                 </MDBCol>
@@ -191,6 +179,7 @@ const AddBlog = () => {
                     </MDBCard>
                 </MDBContainer>
             </Row>
+            <Footer/>
         </div >
     )
 }
