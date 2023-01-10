@@ -4,11 +4,17 @@ import {
   MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow,
 } from 'mdb-react-ui-kit';
 import { Button, ButtonToolbar, Col, Row } from 'react-bootstrap';
+import { Footer } from '../Footer/Footer';
 
 const Blog = (props) => {
 
   const [blogs, setBlogs] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
 
+
+  useEffect(() => {
+    setIsAdmin(localStorage.getItem("isAdmin"));
+  }, []);
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BASE_ENDPOINT}/api/Blog`)
@@ -16,20 +22,25 @@ const Blog = (props) => {
       .then(data => setBlogs(data));
   });
   return (
-    <div>
+    <div >
       <Col>
-        <Row>
-    
+        <Row >
+
+          {isAdmin === 'false' ? (
+            <>
+              <Button onClick={() => props.history.push('/blog-ekle')} >Yeni Blog Ekle</Button>
+            </>
+          ) : null
+          }
           {blogs.map(blog => (
-            <MDBCard key={blog.BlogId} style={{ maxWidth: '540px', display: "flex", justifyContent: "flex-end", margin: "40px 40px 40px 40px" }}>
+            <MDBCard key={blog.BlogId} style={{ maxWidth: '400px', display: "flex", justifyContent: "flex-end", margin: "40px 40px 40px 40px",  }}>
               <MDBRow className='g-0'>
                 <MDBCardImage alt=".."
                   className=" img-fluid rounded shadow-lg"
                   src={blog.BlogImage}
-                  style={{ width: "auto", height: "auto" }} />
+                  style={{ width: "auto", height: "500px" }} />
                 <MDBCardBody >
                   <MDBCardTitle>{blog.BlogName}</MDBCardTitle>
-
                   <MDBCardText >
                     <small className='text-muted'>
                     </small>
@@ -47,6 +58,7 @@ const Blog = (props) => {
           ))}
         </Row>
       </Col>
+     <Footer/>
     </div>
   );
 };

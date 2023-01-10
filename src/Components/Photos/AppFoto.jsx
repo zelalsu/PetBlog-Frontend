@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SearchBar from './SearchBar'
 import axios from "axios";
 import ImageList  from './ImageList';
+import {Footer} from '../Footer/Footer'
  class AppFoto extends Component {
     state={
         images:[]
@@ -29,8 +30,10 @@ import ImageList  from './ImageList';
       <div className='app-container' >
         <SearchBar onSearchImage={this.onSearchImage}/>
         <ImageList images={this.state.images}/>
+        < Footer  style={{marginTop:"5em"}} />
       </div>
     )
   }
+ 
 }
 export default AppFoto

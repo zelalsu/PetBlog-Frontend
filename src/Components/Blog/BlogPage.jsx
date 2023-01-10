@@ -1,16 +1,16 @@
 
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import "./blog.css"
 import { withRouter } from 'react-router-dom';
 import { Image } from 'react-bootstrap';
 import pati from './images/14710.jpg'
+import { Footer } from '../Footer/Footer';
 
 const BlogPage = (props) => {
-  const [blogs, setBlogs] = useState(props.history.location.state.blog);
+  const [blogs] = useState(props.history.location.state.blog);
 
   debugger
   return (
-
     <div style={{ backgroundImage: `url(${pati})` }}>
       <div className="container mt-5" style={{ backgroundColor: "transparent" }}>
         <div className="row">
@@ -31,8 +31,8 @@ const BlogPage = (props) => {
         <div className="row mt-5">
           <div className="col d-flex justify-content-center">
             <div className="vstack" style={{ borderStyle: "solid", borderRadius: "20px", padding: "15px", backgroundColor: "white" }}>
-              <h5 className='mt-4'>{blogs.BlogComment}</h5>
               <h5 className='mt-4'>{blogs.BlogCommentThree}</h5>
+              <h5 className='mt-4'>{blogs.BlogCommentFour}</h5>
             </div>
           </div>
 
@@ -41,6 +41,7 @@ const BlogPage = (props) => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
 
   );

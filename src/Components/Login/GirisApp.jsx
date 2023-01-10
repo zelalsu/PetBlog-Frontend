@@ -57,7 +57,6 @@ const GirisApp = (props) => {
       },
       )
   };
-
   return (
     <div>
       <MDBContainer fluid>

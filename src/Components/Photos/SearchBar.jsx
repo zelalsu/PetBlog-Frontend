@@ -29,6 +29,8 @@ import  {Button} from "reactstrap";
 		return (
 			//inputumuzda hem enter  a basınca çalılıyor hem de arama butonuna basınca çalışıyor
 			<div  className="search-bar-container ui input">
+
+				<h3 style={{marginTop:"3em", display:"flex", alignItems:"center", justifyContent:"center"}}>Aramak istediğiniz hayvanın ismini girin ve ara butonuna tıklayın..  </h3>
 			<input style={{ marginLeft:"500px", marginTop:"52px" , width:"500px", height:"50px"}} type="text" onKeyPress={(e) => {
 			if(e.key === 'Enter')
 			{

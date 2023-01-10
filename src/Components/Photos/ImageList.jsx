@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import Image from './Image'
 
 

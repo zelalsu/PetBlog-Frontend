@@ -1,11 +1,12 @@
-
-import { Modal, Button, Row, Col, Form, FormGroup, FormLabel, FormControl,Image } from 'react-bootstrap';
+import { Modal, Button, Row, Col, Form, FormGroup, FormLabel, FormControl} from 'react-bootstrap';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import React,{ useState } from 'react'
 
 
- const AddProduct = (props) => {
+ 
+
+const AddProduct = (props) => {
 
 const[snackbaropen,setSnacbarOpen]=useState(false);
 const[snackbarmsg,setSnackbarmsg]=useState('');
@@ -27,11 +28,9 @@ const  handleSubmit=(e) =>{
     ProductProps: e.target.productProps.value,
     Image:e.target.image.value
 
-  });
 
-  e.preventDefault();//url de girdiğimiz değer gözükmesin diye 
-  // if(isLoggin===false)
-  {
+  });
+    e.preventDefault();
     fetch(`${process.env.REACT_APP_BASE_ENDPOINT}/api/ItemProps/`, {//fetch ile istek attık buraya
 
       method: 'POST',
@@ -50,7 +49,7 @@ const  handleSubmit=(e) =>{
           setSnackbarmsg("Failed");
         }
       )
-  }
+  
 }
 return(
   <div className='container'>
@@ -81,23 +80,24 @@ return(
             <Row>
               <Col sm={6}>
                 <Form onSubmit={handleSubmit} >
-                 
-                  <FormGroup>
-                    <FormLabel>
-                      Ürün İsmi
-                    </FormLabel>
-                    <FormControl
-                      type="text"
-                      name="productName"
-                      required//boş geçilemez 
-                      placeholder='Product Name'
-                    />
-                  </FormGroup>
+                <FormGroup>
+                            <FormLabel>
+                                Ürün İsmi
+                            </FormLabel>
+                            <FormControl
+                            
+                                type="text"
+                                name="productName"
+                                required//boş geçilemez 
+                                placeholder='Product Name'
+                            />
+                        </FormGroup>
                   <FormGroup>
                     <FormLabel>
                       Ürün kategorisi
                     </FormLabel>
                     <FormControl
+                      as="textarea"
                       type="text"
                       name="itemId"
                       required//boş geçilemez 
@@ -109,6 +109,7 @@ return(
                       Ürün Markası
                     </FormLabel>
                     <FormControl
+                      as="textarea"
                       type="text"
                       name="productBrand"
                       required//boş geçilemez 
@@ -120,25 +121,27 @@ return(
                       Ürün Özellikleri
                     </FormLabel>
                     <FormControl
+                      as="textarea"
                       type="text"
                       name="productProps"
                       required//boş geçilemez 
-                      placeholder='ProductProps'
+                      placeholder='Ürün Özelliği'
                     />
                   </FormGroup>
                   <FormGroup>
                     <FormLabel>
-                      Product Image
+                      Ürün Fotoğrafı
                       </FormLabel>
                     <FormControl
                      type="text"
                      name="image"
                      required
+                     placeholder='Ürüm fotoğrafı(Link)'
 
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Button variant="primary" type="submit">Ekle</Button>
+                    <Button  style={{marginTop:"4em"}} variant="primary" type="submit">Ekle</Button>
                   </FormGroup>
                 </Form>
               </Col>

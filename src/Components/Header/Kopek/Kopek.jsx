@@ -5,7 +5,7 @@ import { Footer } from '../../Footer/Footer';
 
 export default function () {
     return (
-        <div style={{ paddingTop: "100px" }}>
+        <div  className="container-fluid" style={{ paddingTop: "100px" }}>
             <h3 style={{ display: "flex", justifyContent: "center", marginBottom: "40px" }}>
                 KÖPEĞİNİZİ DAHA İYİ TANIMAK İÇİN
             </h3>
